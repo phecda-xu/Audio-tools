@@ -7,15 +7,15 @@ Demos about read and write audio file
 
 > Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 16000 Hz, 1 channels, s16, 256 kb/s
 
-## 1、open()
+## 1、open() 方法
 
-### 一、安装
+### 1.1、安装
 
 ```
 无
 ```
 
-### 二、读
+### 1.2、读
 
 ```
 流数据长度： len(data[44:]) = 173088 
@@ -31,22 +31,22 @@ $ np.fromstring(data[44:],dtype=np.short)
 
 array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
 ```
-### 三、写
+### 1.3、写
 
 ```
 包含头文件信息的二进制数据直接写入文件中。
 即，使用open方法读取得到的全部的data可以直接使用write指令写入 .wav 文件中。
 ```
 
-## 2、wave.open()
+## 2、wave.open() 方法
 
 
 
-## 3、soundfile
+## 3、soundfile 方法
 
 
 
-## 4、scipy.io
+## 4、scipy.io 方法
 
 
 
