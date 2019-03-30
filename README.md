@@ -47,10 +47,37 @@ array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
 ```
 包含头文件信息的二进制数据直接写入文件中。
 即，使用open方法读取得到的全部的data可以直接使用write指令写入 .wav 文件中。
+
+如果不是通过open()方法获取的数据，需要在数据前面加上头信息，再保存。
 ```
 
 ## 2、wave.open() 方法
 
+#### 2.1、安装
+
+```
+$ pip install wave
+```
+
+#### 2.2、读
+```
+流数据长度： len(data) = 173088 
+时长验证  ：173088/(2*16000) = 5.409s 
+sampwidth 表示位宽
+framerate 即采样率
+data：b'\xf4\xff\xf3\xff\xf5\xff\xf9\xff\xf7\xff\xf1\xff\xf0\xff\xef\xff\xf0\xff\xef\xff\xf5\xff\xf4\xff\xfb\xff\xf9\xff\xf4\xff...'
+```
+```
+转换成数组格式
+$ np.fromstring(data[44:],dtype=np.short)
+
+array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
+```
+#### 2.3、写
+
+```
+
+```
 
 
 ## 3、soundfile 方法
