@@ -8,8 +8,8 @@ def readAudio(filepath):
   f = wave.open(filepath, 'rb')
   params = f.getparams()
   nchannels, sampwidth, framerate, nframes = params[:4]
-  str_data = b''+ f.readframes(nframes)
-  return str_data, sampwidth, framerate
+  byte_data = b''+ f.readframes(nframes)
+  return byte_data, sampwidth, framerate
 
 def writeAudio(out_filename, data):
   file = wave.open(out_filename, 'wb')
