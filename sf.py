@@ -4,8 +4,8 @@
 import soundfile as sf
 
 # 读
-data, samplerate = sf.read('wav/001.wav')
+signal, samplerate = sf.read('wav/001.wav',dtype='int16')
 
 # 写
-sf.write('new_wav/001.wav', data, samplerate)
+sf.write('new_wav/001.wav', signal, samplerate)
 

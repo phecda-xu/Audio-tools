@@ -1,7 +1,7 @@
 # Audio-tools
 Demos about read and write audio file
 
-- 音频信息
+- 音频信息：001.wav
 
 > Duration: 00:00:05.41, bitrate: 256 kb/s
 
@@ -28,8 +28,10 @@ Demos about read and write audio file
 
 #### 1.2、读
 
+[sample](open.py)
+
 ```
-流数据长度： len(data[44:]) = 173088 
+二进制流数据长度： len(data[44:]) = 173088 
 时长验证  ：173088/(2*16000) = 5.409s 
 
 data[:44] : b'RIFFD\xa4\x02\x00WAVEfmt \x10\x00\x00\x00\x01\x00\x01\x00\x80>\x00\x00\x00}\x00\x00\x02\x00\x10\x00data \xa4\x02\x00'
@@ -40,9 +42,17 @@ data[44:] ：b'\xf4\xff\xf3\xff\xf5\xff\xf9\xff\xf7\xff\xf1\xff\xf0\xff\xef\xff\
 转换成数组格式
 $ np.fromstring(data[44:],dtype=np.short)
 
-array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
+data = array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
+
+此时：
+
+len(data) = 86544
+
+duration = 86544/16000 = 5.409s
 ```
 #### 1.3、写
+
+[sample](open.py)
 
 ```
 包含头文件信息的二进制数据直接写入文件中。
@@ -62,8 +72,11 @@ $ pip install wave
 ```
 
 #### 2.2、读
+
+[sample](wave_open.py)
+
 ```
-流数据长度： len(data) = 173088 
+二进制流数据长度： len(data) = 173088 
 时长验证  ：173088/(2*16000) = 5.409s 
 sampwidth 表示位宽
 framerate 即采样率
@@ -73,9 +86,17 @@ data：b'\xf4\xff\xf3\xff\xf5\xff\xf9\xff\xf7\xff\xf1\xff\xf0\xff\xef\xff\xf0\xf
 转换成数组格式
 $ np.fromstring(data[44:],dtype=np.short)
 
-array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16)
+data = array([-12, -13, -11, -7, -9, -15, ..., -54, -52, -57], dtype=int16) 
+
+此时：
+
+len(data) = 86544
+
+duration = 86544/16000 = 5.409s
 ```
 #### 2.3、写
+
+[sample](wave_open.py)
 
 ```
 wave.open 方法读取的byte_data 数据不包括音频的文件头，所以可以在使用同样的方法进行保存时，需要设置相应的头信息；
@@ -88,10 +109,35 @@ wave.open 方法读取的byte_data 数据不包括音频的文件头，所以可
 
 ## 3、soundfile 方法
 
+#### 3.1、安装
 
+```
+$ pip install soundfile
+```
 
+#### 3.2、读
+
+[sample](sf.py)
+
+```
+数组数据长度：len(signal) = 86544
+时长验证：86544/16000 = 5.409s
+samplerate 为音频采样率
+signal：array([-0.00036621 -0.00039673 -0.00033569 ... -0.00164795 -0.00158691 -0.0017395 ], dtype=float64)   （dtype的类型可以设置,当为int16时就与上边两种读取方法二进制数据转换后的结果一致）
+```
+
+#### 3.3、写
+
+[sample](sf.py)
+
+```
+soundfile 方法是将数组格式的音频直接保存成一个wav文件，所以使用sf.read() 读取的数据可以直接用sf.write()存；
+
+使用open及wave.open() 方法读取的二进制格式数据转化成数组形式后也可以使用这中方法保存。
+```
 ## 4、scipy.io 方法
 
 
 
-## 
+## 5、librosa
+
