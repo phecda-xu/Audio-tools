@@ -17,6 +17,7 @@ Demos about read and write audio file
 
 - scipy.io 方法
 
+- librosa 方法
 
 ## 1、open() 方法
 
@@ -135,9 +136,38 @@ soundfile 方法是将数组格式的音频直接保存成一个wav文件，所�
 
 使用open及wave.open() 方法读取的二进制格式数据转化成数组形式后也可以使用这中方法保存。
 ```
+
 ## 4、scipy.io 方法
 
+#### 4.1、安装
 
+```
+$ pip install scipy
+```
+
+#### 4.2、读
+
+[sample](scipy_fun.py)
+
+```
+数组数据长度：len(signal) = 86544
+时长验证：86544/16000 = 5.409s
+samplerate 为音频采样率
+
+signal：array([-12 -13 -11 ... -54 -52 -57], dtype=int16)   （dtype的类型wav 存储时的类型）
+```
+
+#### 3.3、写
+
+[sample](scipy_fun.py)
+
+```
+scipy.io 方法也是将数组格式的音频直接保存成一个wav文件，所以使用wavfile.read()读取的数据可以直接用wavfile.write()存；
+
+使用open及wave.open() 方法读取的二进制格式数据转化成数组形式后也可以使用这中方法保存。
+
+使用soundfile 读取的数据也可以直接使用wavfile.write() 存，注意wavfile.write() 与 sf.write() 输入参数的顺序
+```
 
 ## 5、librosa
 
