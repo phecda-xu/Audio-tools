@@ -1,2 +1,5 @@
 .idea/
-wav/*.mp3
+__pycache__/
+readAndWrite/wav/*.mp3
+extractFeature/__pycache__/
+readAndWrite/__pycache__/
