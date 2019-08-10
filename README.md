@@ -7,6 +7,7 @@
 - 键盘控制麦克风录音
 - VAD
 - DENOSE
+- extractWavLoudest
 
 ## 待做
 
