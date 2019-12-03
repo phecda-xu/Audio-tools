@@ -15,6 +15,13 @@ Duration: 00:03:16.70, bitrate: 32 kb/s
 Stream #0:0: Audio: mp3, 8000 Hz, stereo, s16p, 32 kb/s
 ```
 
+- 音频信息：003.wav
+
+```
+Duration: 00:00:06.16, bitrate: 512 kb/s
+Stream #0:0: Audio: pcm_s32le ([1][0][0][0] / 0x0001), 16000 Hz, 1 channels, s32, 512 kb/s
+```
+
 
 ## 目录
 
