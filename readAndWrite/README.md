@@ -3,9 +3,18 @@ Demos about read and write audio file
 
 - 音频信息：001.wav
 
-> Duration: 00:00:05.41, bitrate: 256 kb/s
+```
+Duration: 00:00:05.41, bitrate: 256 kb/s
+Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 16000 Hz, 1 channels, s16, 256 kb/s
+```
 
-> Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 16000 Hz, 1 channels, s16, 256 kb/s
+- 音频信息：002.mp3
+
+```
+Duration: 00:03:16.70, bitrate: 32 kb/s
+Stream #0:0: Audio: mp3, 8000 Hz, stereo, s16p, 32 kb/s
+```
+
 
 ## 目录
 
