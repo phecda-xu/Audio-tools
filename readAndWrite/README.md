@@ -151,9 +151,11 @@ signal：array([-0.00036621 -0.00039673 -0.00033569 ... -0.00164795 -0.00158691 
 soundfile 方法是将数组格式的音频直接保存成一个wav文件，所以使用sf.read() 读取的数据可以直接用sf.write()存；
 
 使用open及wave.open() 方法读取的二进制格式数据转化成数组形式后也可以使用这中方法保存。
+
+注意：在默认保存的是16位的数据，当原始数据是32位时，需要设置参数 subtype='PCM_32'
 ```
 
-## 4、scipy.io 方法
+## 4、scipy.io.wavfile 方法
 
 #### 4.1、安装
 
@@ -180,9 +182,11 @@ signal：array([-12 -13 -11 ... -54 -52 -57], dtype=int16)   （dtype的类型wa
 ```
 scipy.io 方法也是将数组格式的音频直接保存成一个wav文件，所以使用wavfile.read()读取的数据可以直接用wavfile.write()存；
 
+原始数据为32位时，自动保存成32位。
+
 使用open及wave.open() 方法读取的二进制格式数据转化成数组形式后也可以使用这中方法保存。
 
-使用soundfile 读取的数据也可以直接使用wavfile.write() 存，注意wavfile.write() 与 sf.write() 输入参数的顺序
+使用soundfile 读取的数据也可以直接使用wavfile.write() 存，但是两者读取同一个音频的数值不一致；此外注意wavfile.write() 与 sf.write() 输入参数的顺序
 ```
 
 ## 5、librosa
