@@ -3,3 +3,4 @@ __pycache__/
 readAndWrite/wav/*.mp3
 extractFeature/__pycache__/
 readAndWrite/__pycache__/
+venv/

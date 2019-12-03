@@ -4,7 +4,7 @@
 from scipy.io import wavfile
 
 # 读
-sample_rate, signal = wavfile.read('wav/001.wav')
+sample_rate, signal = wavfile.read('../wav/003.wav')
 
 
 # 写
