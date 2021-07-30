@@ -102,6 +102,7 @@ def melFilter(frames, nfilt, sample_rate):
         for k in range(f_m, f_m_plus):
             fbank[m - 1, k] = (bin[m + 1] - k) / (bin[m + 1] - bin[m])
     filter_banks = np.dot(frames, fbank.T)
+    filter_banks = np.where(filter_banks == 0, np.finfo(float).eps, filter_banks)  # Numerical Stability
     filter_banks = 20 * np.log10(filter_banks)
     return filter_banks
 
